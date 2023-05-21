@@ -1,0 +1,27 @@
+<header>
+    <mat-toolbar color="primary">
+        <div><a mat-button routerLink="/">HOME</a></div>
+        <div><a mat-button routerLink="/products">Sản phẩm</a></div>
+        <div><a mat-button routerLink="/cart">Giỏ hàng</a></div>
+        <div class="search-bar">
+            <input type="text" [(ngModel)]="searchKeyword" (keyup.enter)="searchProducts()"
+                placeholder="Nhập tên cần tiếm kiếm..." />
+            <button mat-icon-button (click)="searchProducts()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+
+        <span class="example-spacer"></span>
+
+        <div *ngIf="isLoggedIn()">
+            Xin chào, {{ currentUser }}!
+            <button (click)="logout()">Đăng xuất</button>
+        </div>
+        <div *ngIf="!isLoggedIn()">
+            <a mat-button routerLink="/login">Đăng nhập</a>
+        </div>
+
+
+    </mat-toolbar>
+
+</header>
