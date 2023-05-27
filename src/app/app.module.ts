@@ -18,6 +18,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +41,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AppRoutingModule,
     MatDialogModule,
     MatIconModule,
+    MatPaginatorModule,
   ],
   bootstrap: [AppComponent],
 })

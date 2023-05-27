@@ -11,8 +11,8 @@ export class CartService {
   private storageKey = 'cartItems';
 
   constructor(private authService: AuthService, private router: Router) {
-    // Khôi phục thông tin giỏ hàng từ local storage khi khởi tạo service
-    const storedItems = localStorage.getItem(this.storageKey);
+    // Khôi phục thông tin giỏ hàng từ sessionStorage khi khởi tạo service
+    const storedItems = sessionStorage.getItem(this.storageKey);
     if (storedItems) {
       this.items = JSON.parse(storedItems);
     }
@@ -39,7 +39,7 @@ export class CartService {
       this.items[currentUser] = [{ product: product, quantity: 1 }];
     }
 
-    localStorage.setItem(this.storageKey, JSON.stringify(this.items));
+    sessionStorage.setItem(this.storageKey, JSON.stringify(this.items));
   }
 
   getItems(): any[] {
@@ -60,7 +60,7 @@ export class CartService {
       }
     }
 
-    localStorage.setItem(this.storageKey, JSON.stringify(this.items));
+    sessionStorage.setItem(this.storageKey, JSON.stringify(this.items));
   }
 
   removeItem(product: Product): void {
@@ -75,12 +75,12 @@ export class CartService {
       }
     }
 
-    localStorage.setItem(this.storageKey, JSON.stringify(this.items));
+    sessionStorage.setItem(this.storageKey, JSON.stringify(this.items));
   }
 
   clearCart(): void {
     const currentUser = this.authService.getCurrentUser()?.username || '';
     delete this.items[currentUser];
-    localStorage.setItem(this.storageKey, JSON.stringify(this.items));
+    sessionStorage.setItem(this.storageKey, JSON.stringify(this.items));
   }
 }

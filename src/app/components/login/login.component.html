@@ -1,4 +1,7 @@
 <form (ngSubmit)="onLogin()" #form="ngForm">
+    <div *ngIf="errorMessage">
+        <h3>{{ errorMessage }}</h3>
+    </div>
     <div>
         <label for="username">Tên tài khoản: </label>
         <input type="text" id="username" name="username" [(ngModel)]="username" required>

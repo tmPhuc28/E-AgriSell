@@ -1,17 +1,13 @@
 import { Injectable } from '@angular/core';
-
+import { User } from '../models/user.model';
+import { USERS } from '../data/users.data';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private isAuthenticated = false;
   currentUser = '';
 
-  private users = [
-    { username: 'admin', password: 'admin' },
-    { username: 'user', password: 'user' },
-    { username: 'phuc', password: '123' },
-  ];
+  private users: User[] = USERS;
 
   authenticate(username: string, password: string): boolean {
     const user = this.users.find(
@@ -19,14 +15,13 @@ export class AuthService {
     );
     if (user) {
       sessionStorage.setItem('currentUser', JSON.stringify(user));
-      return (this.isAuthenticated = true);
+      return true;
     }
     return false;
   }
 
   logout(): void {
     sessionStorage.removeItem('currentUser');
-    this.isAuthenticated = false;
   }
 
   getCurrentUser() {
@@ -40,11 +35,5 @@ export class AuthService {
 
   isLoggedIn() {
     return !!sessionStorage.getItem('currentUser');
-  }
-
-  constructor() {}
-
-  getIsAuthenticated(): boolean {
-    return this.isAuthenticated;
   }
 }

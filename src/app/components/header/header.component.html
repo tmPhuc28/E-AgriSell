@@ -14,7 +14,7 @@
         <span class="example-spacer"></span>
 
         <div *ngIf="isLoggedIn()">
-            Xin chào, {{ currentUser }}!
+            Xin chào, {{ currentUser }}
             <button (click)="logout()">Đăng xuất</button>
         </div>
         <div *ngIf="!isLoggedIn()">

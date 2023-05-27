@@ -10,24 +10,26 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   username = '';
   password = '';
+  errorMessage: string = '';
 
-  constructor(public authService: AuthService, private router: Router) {}
-
-  onLogin() {
+  constructor(public authService: AuthService, private router: Router) {
     if (this.authService.isLoggedIn()) {
       // Đã đăng nhập, chuyển hướng đến trang chính
       this.router.navigate(['']);
-    } else {
-      if (this.authService.authenticate(this.username!, this.password!)) {
-        this.authService.currentUser = this.username;
-        this.router.navigate(['']);
-      } else {
-        console.log('Invalid username or password');
-      }
     }
   }
 
-  logout() {
-    this.authService.logout();
+  onLogin() {
+    if (this.authService.authenticate(this.username!, this.password!)) {
+      this.authService.currentUser = this.username;
+      this.router.navigate(['']); 
+      this.reloadPage();
+    } else {
+      this.errorMessage = 'Tên tài khoản hoặc mật khẩu không đúng';
+    }
+  }
+
+  reloadPage() {
+    window.location.reload();
   }
 }

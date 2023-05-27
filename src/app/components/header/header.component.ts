@@ -30,7 +30,7 @@ export class HeaderComponent {
   logout(): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '250px',
-      data: 'Bạn có chắc muốn đăng xuất?',
+      data: 'Bạn có chắc muốn đăng xuất ?',
     });
 
     dialogRef.afterClosed().subscribe((result) => {

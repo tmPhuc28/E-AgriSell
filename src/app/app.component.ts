@@ -10,10 +10,5 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'E-ArgiSell';
 
-  constructor(public authService: AuthService, private router: Router) {
-    if (this.authService.isLoggedIn()) {
-      // Đã đăng nhập, chuyển hướng đến trang chính
-      this.router.navigate(['']);
-    }
-  }
+  constructor(public authService: AuthService, private router: Router) {}
 }
