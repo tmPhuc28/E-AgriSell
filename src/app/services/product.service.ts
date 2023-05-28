@@ -6,6 +6,7 @@ import { PRODUCTS } from '../data/products.data';
 })
 export class ProductService {
   private products: Product[] = PRODUCTS;
+  
 
   constructor() {}
 
@@ -25,4 +26,6 @@ export class ProductService {
         product.description.toLowerCase().includes(searchTerm)
     );
   }
+
+  
 }

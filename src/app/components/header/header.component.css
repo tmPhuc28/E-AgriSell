@@ -1,3 +1,17 @@
-.example-spacer {
-  flex: 1 1 auto;
+.color-search {
+  color: #42a063;
+}
+
+.hover-color:hover {
+  color: #42a063;
+}
+.icon-padding-top {
+  display: flex;
+  justify-content: center;
+}
+.size-color-green {
+  font-size: 18px;
+}
+.size-color-green:hover {
+  color: #42a063;
 }

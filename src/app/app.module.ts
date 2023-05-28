@@ -19,7 +19,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { FooterComponent } from './components/footer/footer.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { RegisterComponent } from './components/register/register.component';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +35,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HeaderComponent,
     HomeComponent,
     ConfirmationDialogComponent,
+    FooterComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +49,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatDialogModule,
     MatIconModule,
     MatPaginatorModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatTableModule,
   ],
   bootstrap: [AppComponent],
 })

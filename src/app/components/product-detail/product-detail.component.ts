@@ -11,6 +11,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductDetailComponent implements OnInit {
   product: Product | undefined;
+  selectedQuantity: number = 1;
 
   constructor(
     private productService: ProductService,
@@ -22,7 +23,12 @@ export class ProductDetailComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.product = this.productService.getProductById(id);
   }
-  addToCart(product: Product): void {
-    this.cartService.addToCart(product);
+  addToCart(product: any): void {
+    this.cartService.addToCart(product, this.selectedQuantity);
+  }
+
+  // Kiểm tra trong input không cho nhập số âm vào không lớn lơn 99
+  checkNegativeInput(event: any): void {
+    this.cartService.checkNegativeInput(event);
   }
 }

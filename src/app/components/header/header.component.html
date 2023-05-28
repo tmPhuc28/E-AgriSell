@@ -1,27 +1,43 @@
-<header>
-    <mat-toolbar color="primary">
-        <div><a mat-button routerLink="/">HOME</a></div>
-        <div><a mat-button routerLink="/products">Sản phẩm</a></div>
-        <div><a mat-button routerLink="/cart">Giỏ hàng</a></div>
+<div class="container">
+    <div class="navbar">
+        <div class="logo">
+            <a routerLink="/"><img src="assets/images/logo.jpg" width="125px"></a>
+        </div>
         <div class="search-bar">
-            <input type="text" [(ngModel)]="searchKeyword" (keyup.enter)="searchProducts()"
-                placeholder="Nhập tên cần tiếm kiếm..." />
+            <mat-form-field class="example-full-width">
+                <mat-label class="color-search">Nhập tìm kiếm</mat-label>
+                <input matInput type="search" placeholder="VD: Máy cắt cỏ..." [(ngModel)]="searchKeyword"
+                    (keyup.enter)="searchProducts()">
+            </mat-form-field>
             <button mat-icon-button (click)="searchProducts()">
                 <mat-icon>search</mat-icon>
             </button>
         </div>
-
-        <span class="example-spacer"></span>
-
-        <div *ngIf="isLoggedIn()">
-            Xin chào, {{ currentUser }}
-            <button (click)="logout()">Đăng xuất</button>
+        <nav>
+            <ul id="MenuItems">
+                <li><a class="size-color-green" mat-button routerLink="/">Trang chủ</a></li>
+                <li><a class="size-color-green" mat-button routerLink="/products">Sản phẩm</a></li>
+                <li><a class="size-color-green" mat-button routerLink="">Liên hệ</a></li>
+                <li><a class="size-color-green" mat-button routerLink="">Bài viết</a></li>
+                <li>
+                    <div *ngIf="!isLoggedIn()">
+                        <a class="size-color-green" mat-button routerLink="/login">Đăng nhập</a>
+                    </div>
+                    <div *ngIf="isLoggedIn()">
+                        <a mat-stroked-button color="warn" (click)="logout()">Đăng xuất</a>
+                    </div>
+                </li>
+                <li>
+                    <div *ngIf="isLoggedIn()">
+                        <i class="fa fa-user hover-color" matTooltip="Xin chào, {{ currentUser }}"></i>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="icon-padding-top">
+            <a routerLink="/cart"><img src="assets/images/cart.png" width="30px" height="30px"></a>
+            <img src="assets/images/menu.png" class="menu-icon" (click)="menutoggle()">
         </div>
-        <div *ngIf="!isLoggedIn()">
-            <a mat-button routerLink="/login">Đăng nhập</a>
-        </div>
 
-
-    </mat-toolbar>
-
-</header>
+    </div>
+</div>

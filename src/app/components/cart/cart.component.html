@@ -1,31 +1,30 @@
-<mat-card>
+<div class="small-container cart-page">
     <mat-card-header>
-        <mat-card-title>My Cart</mat-card-title>
+        <mat-card-title>Giỏ hàng</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <table>
             <thead>
                 <tr>
+                    <th>Hình ảnh</th>
+                    <th>Sản phẩm</th>
+                    <th>Giá bán</th>
+                    <th>Số lượng</th>
+                    <th>Tổng tiền</th>
                     <th></th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of getItems()">
+                <tr *ngFor="let item of cartItems">
                     <td><img [src]="item.product.image" [alt]="item.product.name" width="50"></td>
                     <td>{{ item.product.name }}</td>
-                    <td>{{ item.product.price }}</td>
+                    <td>{{ item.product.price }} &#8363;</td>
                     <td>
-                        <input type="number" min="1" [(ngModel)]="item.quantity" (change)="updateQuantity(item)"
-                            placeholder="1">
-
+                        <input type="number" min="1" max="99" [(ngModel)]="item.quantity"
+                            (change)="updateQuantity(item)" (input)="checkNegativeInput($event)" value="1">
                     </td>
                     <td>
-                        {{ item.product.price*item.quantity }}
+                        {{ item.totalPriceProduct }} &#8363;
                     </td>
                     <td>
                         <button mat-icon-button color="warn" (click)="removeItem(item)">
@@ -33,10 +32,13 @@
                         </button>
                     </td>
                 </tr>
+
             </tbody>
+
         </table>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="clearCart()">Clear Cart</button>
+        <a mat-stroked-button color="warn" (click)="clearCart()" *ngIf="checkItem()">Xóa tất cả</a>
+        <p>Tổng tiền giỏ hàng: {{ cartTotalPrice }} &#8363;</p>
     </mat-card-actions>
-</mat-card>
+</div>
