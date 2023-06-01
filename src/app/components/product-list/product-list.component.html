@@ -13,8 +13,8 @@
                 <img src="{{product.image}}" alt="{{ product.name }}">
             </a>
             <h4>{{ product.name }}</h4>
-            <p>{{ product.price }} &#8363;</p>
-            <div class="">
+            <p>Giá bán: {{ product.price | number:'1.0-0' }} &#8363;</p>
+            <div class="btn-atc">
                 <button mat-stroked-button color="warn" (click)="addToCart(product)">Thêm vào giỏ hàng</button>
             </div>
         </div>

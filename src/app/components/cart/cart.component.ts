@@ -9,9 +9,11 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
 })
 export class CartComponent implements OnInit {
   cartItems: any[] = []; // Mảng chứa thông tin giỏ hàng
-  totalPriceProduct: number = 0; // Biến tổng tiền
-  selectedQuantity: number = 1;
-  constructor(private cartService: CartService, private dialog: MatDialog) {}
+
+  constructor(
+    public cartService: CartService,
+    private dialog: MatDialog,
+  ) {}
 
   ngOnInit(): void {
     this.loadCartItems();
@@ -24,15 +26,8 @@ export class CartComponent implements OnInit {
 
   loadCartItems(): void {
     this.cartItems = this.cartService.getItems(); // Lấy thông tin giỏ hàng từ service
-    this.calculateTotalPriceProduct(); // Tính tổng tiền
   }
-  calculateTotalPriceProduct(): void {
-    this.totalPriceProduct = 0;
-    for (const item of this.cartItems) {
-      item.totalPriceProduct = item.product.price * item.quantity; // Tính tổng tiền cho mỗi sản phẩm
-      this.totalPriceProduct += item.totalPriceProduct; // Cộng tổng tiền vào biến totalPrice
-    }
-  }
+
   get cartTotalPrice(): number {
     return this.cartService.getCartTotalPrice();
   }
@@ -53,7 +48,7 @@ export class CartComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.cartService.clearCart();
+        this.cartService.clearAllCartNotifications();
         this.loadCartItems(); // Sau khi xóa toàn bộ giỏ hàng, cập nhật lại thông tin giỏ hàng và tổng tiền
       }
     });
@@ -64,5 +59,8 @@ export class CartComponent implements OnInit {
   // Kiểm tra trong input không cho nhập số âm vào không lớn lơn 99
   checkNegativeInput(event: any): void {
     this.cartService.checkNegativeInput(event);
+  }
+  onCheckout(): void {
+    return this.cartService.onCheckout();
   }
 }

@@ -1,0 +1,11 @@
+.checkout-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.total-cart {
+  display: flex;
+  flex-direction: column;
+}
+.btn-top {
+  margin-top: 20px;
+}

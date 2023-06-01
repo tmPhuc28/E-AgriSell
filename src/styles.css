@@ -399,7 +399,7 @@ td:last-child {
 .form-container {
   background: #fff;
   width: 300px;
-  height: 400px;
+  height: 500px;
   position: relative;
   text-align: center;
   padding: 20px 0;
@@ -466,7 +466,7 @@ form a {
 }
 
 /* --------------- Media query FOR menu -------------- */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1116px) {
   nav ul {
     position: absolute;
     top: 95px;

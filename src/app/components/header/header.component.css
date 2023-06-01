@@ -15,3 +15,6 @@
 .size-color-green:hover {
   color: #42a063;
 }
+.search-bar {
+  min-width: 220px;
+}

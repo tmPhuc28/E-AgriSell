@@ -17,8 +17,8 @@
             <ul id="MenuItems">
                 <li><a class="size-color-green" mat-button routerLink="/">Trang chủ</a></li>
                 <li><a class="size-color-green" mat-button routerLink="/products">Sản phẩm</a></li>
-                <li><a class="size-color-green" mat-button routerLink="">Liên hệ</a></li>
-                <li><a class="size-color-green" mat-button routerLink="">Bài viết</a></li>
+                <li><a class="size-color-green" mat-button routerLink="blog">Tin tức</a></li>
+                <li><a class="size-color-green" mat-button routerLink="contacts">Liên hệ</a></li>
                 <li>
                     <div *ngIf="!isLoggedIn()">
                         <a class="size-color-green" mat-button routerLink="/login">Đăng nhập</a>
@@ -36,7 +36,7 @@
         </nav>
         <div class="icon-padding-top">
             <a routerLink="/cart"><img src="assets/images/cart.png" width="30px" height="30px"></a>
-            <img src="assets/images/menu.png" class="menu-icon" (click)="menutoggle()">
+            <img src="assets/images/menu.png" class="menu-icon" width="30px" height="30px" (click)="menutoggle()">
         </div>
 
     </div>

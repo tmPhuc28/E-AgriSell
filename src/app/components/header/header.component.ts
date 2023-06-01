@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currentUser = this.authService.getCurrentUser()?.username || '';
+    this.currentUser = this.authService.getCurrentUser()?.fullName || '';
     this.menuItems = document.getElementById('MenuItems');
     if (this.menuItems) {
       this.menuItems.style.maxHeight = '0px';

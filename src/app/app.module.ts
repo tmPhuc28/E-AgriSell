@@ -25,6 +25,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { RegisterComponent } from './components/register/register.component';
 import { MatTableModule } from '@angular/material/table';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { MatBadgeModule } from '@angular/material/badge';
+import { BlogComponent } from './components/blog/blog.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +41,9 @@ import { MatTableModule } from '@angular/material/table';
     ConfirmationDialogComponent,
     FooterComponent,
     RegisterComponent,
+    CheckoutComponent,
+    BlogComponent,
+    ContactsComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +60,7 @@ import { MatTableModule } from '@angular/material/table';
     MatSnackBarModule,
     MatInputModule,
     MatTableModule,
+    MatBadgeModule,
   ],
   bootstrap: [AppComponent],
 })
