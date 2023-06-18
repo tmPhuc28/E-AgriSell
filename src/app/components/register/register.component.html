@@ -1,0 +1,47 @@
+<div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="assets/images/logo-nontext.png" width="100%">
+            </div>
+
+            <div class="col-2">
+                <div class="form-container">
+                    <div class="form-btn">
+                        <span routerLink="/login">Đăng nhập</span>
+                        <span routerLink="/register">Đăng ký</span>
+                        <hr id="Indicator">
+                    </div>
+
+                    <form id="RegForm" class="example-form" (ngSubmit)="onRegister()">
+                        <div class="pd-error" *ngIf="errorMessage">
+                            <span class="error-message">{{ errorMessage }}</span>
+                        </div>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Họ và tên</mat-label>
+                            <input matInput type="text" id="fullName" [(ngModel)]="fullName" name="fullName" required>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Tên đăng nhập</mat-label>
+                            <input matInput type="text" id="username" [(ngModel)]="username" name="username" required>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="email" id="email" [(ngModel)]="email" name="email" required>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Mật khẩu</mat-label>
+                            <input matInput type="password" id="password" [(ngModel)]="password" name="password"
+                                required>
+                        </mat-form-field>
+
+                        <button type="submit" class="btn">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

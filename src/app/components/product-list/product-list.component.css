@@ -1,0 +1,8 @@
+.flex-pag {
+  display: flex;
+  justify-content: center;
+}
+.btn-atc {
+  padding-top: 5px;
+  float: center;
+}

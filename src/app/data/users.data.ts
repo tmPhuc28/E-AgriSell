@@ -3,7 +3,22 @@
 import { User } from '../models/user.model';
 
 export const USERS: User[] = [
-  { username: 'admin', password: 'admin' },
-  { username: 'user', password: 'user' },
-  { username: 'phuc', password: '123' },
+  {
+    username: 'minhphuc',
+    email: 'minhphuc@gmail.com',
+    password: '123',
+    fullName: 'Trịnh Minh Phúc',
+  },
+  {
+    username: 'user',
+    email: 'user@gmail.com',
+    password: '123',
+    fullName: 'User',
+  },
+  {
+    username: 'admin',
+    email: 'admin@gmail.com',
+    password: '123',
+    fullName: 'Admin',
+  },
 ];
